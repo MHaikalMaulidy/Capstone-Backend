@@ -23,8 +23,8 @@ docker build -t backend-summarizer .
 docker run -p 8080:8080 backend-summarizer
 ```
 ## Cara Menggunakan Endpoint
-
-# Request JSON:
+POST http://localhost:8080/summarize
+Request JSON:
 ```bash
 {
   "text": "Teks yang ingin diringkas...",
