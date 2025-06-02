@@ -9,20 +9,19 @@ import (
 	"net/http"
 )
 
-func ProcessSummary(text string, n int) string {
-	summary := callMLModel(text, n)
+func ProcessSummary(text string) string {
+	summary := callMLModel(text)
 	database.SaveSummary(text, summary)
 	return summary
 }
 
-func callMLModel(text string, n int) string {
+func callMLModel(text string) string {
 	payload := map[string]interface{}{
 		"text": text,
-		"n":    n,
 	}
 	jsonVal, _ := json.Marshal(payload)
 
-	resp, err := http.Post("https://web-production-6ed8.up.railway.app/summarize", "application/json", bytes.NewBuffer(jsonVal))
+	resp, err := http.Post("https://api-capstone-kappa.vercel.app/summarize", "application/json", bytes.NewBuffer(jsonVal))
 	if err != nil {
 		return "Error contacting summarization service"
 	}
