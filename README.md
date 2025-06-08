@@ -16,8 +16,6 @@ API backend untuk meringkas teks Bahasa Indonesia secara otomatis menggunakan mo
 ##  Cara Menjalankan 
 
 ```bash
-git clone https://github.com/username/backend-summarizer.git
-cd backend-summarizer
 
 docker build -t backend-summarizer .
 docker run -p 8080:8080 backend-summarizer
